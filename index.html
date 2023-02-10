@@ -1,0 +1,238 @@
+<!-- 主页 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20001030314王浩然</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+    <link rel="stylesheet" type="text/css" href="/css/iconfont/iconfont.css">
+
+    
+
+</head>
+<body>
+    <!--上导航-->
+    <div id="top">
+
+        <ul id="tn">
+            <li>
+                <a href="index.html">
+                    <span class="iconfont icon-changyonglogo32"></span>
+                </a>
+            </li>
+            <li class="search">
+                    <input type="text" placeholder="搜索一下"> 
+            </li>
+            <li>
+                <span class="iconfont icon-lishijilu_o"></span>
+            </li>
+            <li>
+                <span class="iconfont icon-add"></span>
+            </li>
+        </ul>
+
+    </div>
+<!--副首标题-->
+    <div class="tap">
+        <div class="tt">
+            <span>直播</span>
+            <span class="cur">推荐</span>
+            <span>热点</span>
+            <span>月歌行</span>
+            <span>迷雾</span>
+            <span>电视剧</span>
+            <span class="iconfont iconfont icon-31liebiao"></span>
+        </div>
+    <!--轮播图-->
+        <div class="carousel">
+            <div class="container">
+                <img src="/img/bxjg.jpg" alt="">
+                <img src="/img/car.jpg" alt="">
+                <img src="/img/dongman1.jpg" alt="">
+                <img src="/img/dongman2.jpg" alt="">
+                <img src="/img/fcz.jpg" alt="">
+            </div>
+            <div class="shift">
+                <div class="btn1 left" onclick="leftShift()">&lt;</div>
+                <div class="btn1 right" onclick="rightShift()">&gt;</div>
+            </div>
+
+            <div class="bottom">
+                <div class="indicator" onclick="setIndex(0)"></div>
+                <div class="indicator" onclick="setIndex(1)"></div>
+                <div class="indicator" onclick="setIndex(2)"></div>
+                <div class="indicator" onclick="setIndex(3)"></div>
+                <div class="indicator" onclick="setIndex(4)"></div>
+            </div>
+        </div>
+    
+        <script>
+            //显示的图片下标
+            let index = 0
+            
+            function refrech() {
+            
+            if(index<0){
+                //下标小于0时 设置最右边图片
+                index=4
+            } else if(index > 4){
+                //下标超过上限 设置最左边图片
+                index = 0
+            }
+
+            //获取轮播元素
+            let carousel = document.querySelector(".carousel")
+
+            //获取轮播框宽度
+            let width = getComputedStyle(carousel).width
+            width = Number(width.slice(0,-2))
+
+            carousel.querySelector(".container").style.left=
+                index * width *-1 +"px"
+            }
+
+            let refrechWrapper = (func) => {
+                //refresh装饰器
+                return function (...args) {
+                    let result = func(...args)
+                    refrech()
+                    return result
+                }
+            }
+
+            function leftShift() {
+                index--
+                refrech()
+            }
+
+            function rightShift() {
+                index++
+                refrech()
+            }
+
+            function setIndex(idx){
+                index=idx
+                refrech()
+            }
+
+            refrech()
+        </script>
+<!--回答首部-->
+        <div class="btn">
+            <div class="oo"></div>
+        </div>
+
+        <script>
+            var btn = document.getElementsByClassName("btn")[0];
+            window.onscroll = function(){
+                var top = document.documentElement.scrollTop;
+                top > 300 ? btn.style.right="20px": btn.style.right="-50px"
+            }
+            btn.onclick = function(){
+                var settime =  setInterval(() => {
+                    var top =  document.documentElement.scrollTop;
+                    top > 0 ? document.documentElement.scrollTop = top -50 : clearInterval(settime);
+                }, 2);
+            }
+        </script>
+
+        <!--首内容-->
+
+        <div class="new">
+            <h3>新剧集抢先看</h3>
+            <div class="card">
+                <div class="x">
+                    <img src="/img/find/1.png" alt=""></a>
+                    <span>回来的女儿</span>
+                </div>
+                <div class="x">
+                    <img src="/img/find/2.png" alt="">
+                    <span>向风而行</span>
+                </div>
+                <div class="x">
+                    <img src="/img/find/3.png" alt="">
+                    <span>月歌行</span>
+                </div>
+                <div class="x">
+                    <img src="/img/find/4.png" alt="">
+                    <span>浮图缘</span>
+                </div>
+                <div class="x">
+                    <img src="/img/find/5.png" alt="">
+                    <span>县委大院</span>
+                </div>
+                <div class="x">
+                    <img src="/img/find/6.png" alt="">
+                    <span>孤独的野兽</span>
+                </div>
+            </div>
+            <h3>VIP专享</h3>
+            <div class="card">
+            
+                <div class="x">
+                    <img src="/img/find/7.png" alt="">
+                    <span>扫黑行动</span>
+                </div>
+                <div class="x">
+                    <img src="/img/find/8.png" alt="">
+                    <span>斗士</span>
+                </div>
+                <div class="x">
+                    <img src="/img/find/9.png" alt="">
+                    <span>僵尸山雀</span>
+                </div>
+            </div>
+            <div class="aa">查看全部</div>   
+        </div>
+
+       
+
+
+    
+<!--下导航-->
+    <div id="dibudao">
+    <ul id="nav">
+        <li>
+            <a href="index.html">
+                    <span class="iconfont icon-home"></span>
+                    <p>首页</p>
+            </a>
+        </li>        
+        <li>
+                
+            <!--<a href="/pages/video.html">-->
+                    <span class="iconfont icon-video"></span>
+                    <p>即刻视频</p>
+            </a>    
+        </li>
+
+
+        
+        <li>
+            <a href="/pages/vip.html">
+                    <span class="iconfont icon-VIP"></span>
+                    <p>VIP</p>
+            </a>
+        </li>
+
+        <li>
+            <a href="/pages/find.html">
+                    <span class="iconfont icon-faxian"></span>
+                    <p>发现</p>
+            </a>
+        </li>
+
+        <li>
+            <a href="/pages/my.html">
+                    <span class="iconfont icon-shouye"></span>
+                    <p>我的</p>
+            </a>
+        </li>
+
+    </ul>
+    </div>
+</body>
+</html>

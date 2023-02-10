@@ -1,0 +1,456 @@
+div,ul,li.top.dao{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}   
+
+
+a{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+ul{
+    list-style: none;
+}
+
+/*bottom dao*/
+
+
+#nav{
+    position:fixed; 
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    background-color: #fff;
+}
+
+#nav li{
+    width: 20%;
+    text-align: center;
+}
+
+#nav li span{
+    font-size: 24px;
+    line-height: 30px;
+    display: block; 
+}
+
+span {
+    position: relative;
+    top: -1.5px;
+    line-height: 30px;
+}
+
+/*top dao*/
+
+
+
+#tn{
+    text-align: center;
+    position:top; 
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    background-color: #fff;
+}
+
+#tn li:nth-child(1){
+    width: 10%;
+    text-align: center;
+}
+
+#tn li:nth-child(2){
+    width: 70%;
+    text-align: center;
+}
+
+.search input{
+    top: 14px;
+    width: 85%;
+    height: 80%;
+    color: black;
+    font: 24px 25px'宋体';
+    border: 1;
+    border-radius: 10px;
+    background-color: white;
+}
+
+
+
+
+#tn li:nth-child(3){
+    width: 10%;
+    text-align: center;   
+}
+
+
+#tn li:nth-child(4){
+    width: 10%;
+    text-align: center;
+}
+
+#tn li span{
+    font-size: 24px;
+    line-height: 30px;
+    display: block; 
+}
+
+.shell{
+    width: 80%;
+    color: #fff;
+    font: '微软雅黑';
+    border: 0;
+    background-color: transparent;
+}
+
+.shell a{
+    display: flex;
+    font-size: 22px;
+    color: black;
+    position:absolute;
+    right: 215px;
+    top: 6px;
+    width: auto;
+    height: auto;
+}
+
+.shell a .iconfont {
+    margin: 10px 28px;
+    transition: .3s;
+}
+
+.shell a .iconfont {
+    transform: translateX(-80px);
+    opacity: 1;
+}
+
+/*body*/
+
+.tt {
+    display: flex;
+    width: 100%;
+
+
+  }
+
+  .tt>span {
+    width: 25%;
+    line-height: 32px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .tt>.cur {
+    font-size: 20px;
+
+
+    margin-bottom: -1px;
+  }
+
+  .tc {
+
+    border-top: none;
+
+    text-align: center;
+
+    display: none;
+  }
+
+/*轮播图*/
+  .carousel{
+    width: 100%;
+    height: 100%;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    position: relative;
+  }
+
+  .carousel .container{
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    left: 0;
+
+    display: flex;
+
+
+    transition: all 1s;
+  }
+
+  .carousel .container img {
+    width: 100%;
+    height: 100%;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+  }
+
+  .carousel .shift .btn1 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    
+    color: #fff;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+
+    font-size: 40px;
+    font-weight: bold;
+
+    line-height: 50px;
+    text-align: center;
+
+    cursor: pointer;
+
+    user-select: none;
+  }
+
+  .carousel .shift .left {
+    left: 20px;
+  }
+
+  .carousel .shift .right{
+    right: 20px;
+  }
+
+  .carousel .bottom {
+    position:absolute;
+
+    bottom: 20px;
+
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    width: max-content;
+
+    display: flex;
+    /*间距*/
+    gap: 10px;
+  }
+
+  .carousel .bottom .indicator {
+    height: 5px;
+    width: 40px;
+
+    background-color:#fff;
+
+    cursor: pointer;
+
+    user-select: none;
+  }
+
+  /*回到顶部*/
+
+.btn{
+    transition: all .2s ease-out;
+    box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 005);
+    position: fixed;
+    right:50px ;
+    
+    bottom: 100px;
+    width: 40px;
+    height: 40px;
+    background-color: #4d93ec;
+    border-radius: 50%;
+    z-index: 999;
+
+     user-select: none;
+}
+
+.oo{
+    width: 0;
+    height: 0;
+    transform: translate(12px,8px);
+    border-top: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+
+    user-select: none;
+}
+
+/*内容*/
+
+.new {
+  background-color: #fff;
+  border-radius: 25px;
+  width: 95%;
+  margin: auto;
+  margin-top: 10px;
+  width: 100%;
+  margin-bottom: 80px;
+  height: 550px;
+}
+
+.new h3 {
+  color: rgb(67, 165, 226);
+  padding: 20px 0px 0px 20px;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 0px;
+}
+
+.x {
+  width: 30%;
+}
+
+.x img {
+  margin: auto;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.x span {
+  line-height: 40px;
+}
+
+.aa{
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  font-size: 18px;
+  padding: 10px 0px;
+}
+
+/*手风琴*/
+
+.sf{
+  display: flex;
+  width: 90vh;
+  max-width: 900px;
+  height:  400px;
+  overflow: hidden;
+}
+
+.it{
+  position: relative;
+  width: 60px;
+  margin: 10px;
+  cursor: pointer;
+  border: 30px;
+  background-size: cover;
+  background-position: center;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  overflow: hidden;
+}
+
+.it .shadow{
+  position:absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;height: 100px;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.it .xf{
+  display: flex;
+  position: absolute;
+  left: 10px;
+  right: 0;
+  bottom: 10px;
+  height: 40px;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.it .xf .xtb{
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.it:nth-child(1) .iconfont{
+  color: black;
+}
+
+.it:nth-child(2) .iconfont{
+  color: black;
+}
+
+.it:nth-child(3) .iconfont{
+  color: black;
+}
+
+.it:nth-child(4) .iconfont{
+  color: black;
+}
+
+.it:nth-child(5) .iconfont{
+  color: black;
+}
+
+.it .xf .tex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  color: #fff;
+  width: 100%;
+}
+
+.it .xf .tex div{
+  width: calc(100% - 70px);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.it .xf .tex .tit{
+  font-weight: bold;
+  font-size: 18px;
+}
+.it.active{
+  flex: 1;
+  margin: 0;
+  border-radius: 40px; 
+}
+
+.it.active .shadow{
+  background: linear-gradient(to top,rgba(0,0,0,0.35) 65%,transparent);
+}
+
+.it.active .xf{
+  bottom: 20px;
+  left: 20px;
+}
+
+.it.active .xf .tex div{
+  opacity: 1;
+}

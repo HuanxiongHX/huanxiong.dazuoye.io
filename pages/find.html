@@ -1,0 +1,193 @@
+<!--发现页面-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20001030314王浩然</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/find.css">
+    <link rel="stylesheet" type="text/css" href="/css/iconfont/iconfont.css">
+</head>
+<body>
+    <header id="head">
+        <a href="#">
+            <span class="iconfont icon-zuojiantou"></span>
+        </a>
+        <form action="#">
+            <div>
+                <label for="search">
+                    <span class="iconfont icon-sousuo"></span>
+                </label>
+                <input type="text" name="search" id="search" placeholder="看你想看！" required>
+            </div>
+            <input type="submit" value="搜索" id="sub">
+        </form>
+    </header>
+	<!-- tab选项卡内容 -->
+    <div class="main">
+		<div class="title">爱奇艺风云榜</div>
+		<div class="top">
+			<ul>
+				<li class="selected">热播榜<div class="pic"></div>
+				</li>
+				<li>飙升榜<div class="pic none"></div>
+				</li>
+				<li>必看榜<div class="pic none"></div>
+				</li>
+			</ul>
+		</div>
+		<div class="box">
+			<ul></ul>
+		</div>
+		<div class="box none">
+			<ul></ul>
+		</div>
+		<div class="box none">
+			<ul></ul>
+		</div>
+	</div>
+
+    
+	<script>
+		let tab = document.getElementsByClassName("main")[0];
+		let tt = tab.getElementsByClassName("top")[0];
+		let li = tt.getElementsByTagName("li");
+		let tc = tab.querySelectorAll(".box");
+        let ul = tab.getElementsByTagName("ul");
+		let xmlhttp;
+		if (window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+		} 
+		else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+        xmlhttp.onreadystatechange = function () {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                let jarr = JSON.parse(xmlhttp.responseText);
+				for(j in jarr) {
+					if(j == "tab1") {
+						for(v of jarr[j]) {
+							let nli = document.createElement("LI");
+							for(let i = 0; i < jarr[j].length; i++) {        
+								nli.innerHTML = `
+										<div class="img">
+											<div class="pic1">${v.pic1}</div><img src="${v.img}" />
+										</div>
+										<div class="text"><a href="${v.link}">${v.text}</a>
+											<span class="red">${v.red}</span>
+											<div class="price">${v.price}</div>
+										</div>
+									`; 	
+							}
+						ul[1].appendChild(nli);
+                    	}
+					}
+					else if(j == "tab2"){
+						for(v of jarr[j]) {	
+							let nli = document.createElement("LI");				
+							for(let i = 0; i <= jarr[j].length; i++) {                                                                   		
+								nli.innerHTML = `
+										<div class="img">
+											<div class="pic1">${v.pic1}</div><img src="${v.img}" />
+										</div>
+										<div class="text"><a href="${v.link}">${v.text}</a>
+											<span class="red">${v.red}</span>
+											<div class="price">${v.price}</div>
+										</div>
+									`; 	
+							}
+						ul[2].appendChild(nli);
+                    	}
+					}
+					else{
+						for(v of jarr[j]) {	
+							let nli = document.createElement("LI");				
+							for(let i = 0; i <= jarr[j].length; i++) {                                                                    
+								nli.innerHTML = `
+										<div class="img">
+											<div class="pic1">${v.pic1}</div><img src="${v.img}" />
+										</div>
+										<div class="text"><a href="${v.link}">${v.text}</a>
+											<span class="red">${v.red}</span>
+											<div class="price">${v.price}</div>
+										</div>
+									`; 	
+							}
+						ul[3].appendChild(nli);
+                    	}
+					}    	
+            	}
+
+				for(let i = 0; i < tc.length; i++) {
+					let li = tc[i].querySelectorAll(".box ul li");
+					let div = tc[i].querySelectorAll(".box ul li div:first-child>div");
+					for(let i = 3; i >= div.length-2 && i < div.length; i++) {
+						div[i].classList.remove("pic1");
+						div[i].classList.add("pic2");
+					}
+					li[4].className = "last";		
+				}
+
+                for (let i = 0; i < li.length; i++) {
+                    li[i].onmouseover = function () {
+                        for (let j = 0; j < tc.length; j++) {
+                            tc[j].style.display = "none";
+                            li[j].index = j;
+                            li[j].className = "";
+                        }
+                    tc[this.index].style.display = "block";
+                    this.className = "selected";
+                }
+		        }
+			}
+		}
+		xmlhttp.open("GET", "paihang.json", true);
+		xmlhttp.send();
+	</script>
+
+    <!--下导航-->
+    <div id="dibudao">
+        <ul id="nav">
+            <li>
+                <a href="../index.html">
+                        <span class="iconfont icon-home"></span>
+                        <p>首页</p>
+                </a>
+            </li>        
+            <li>
+                    
+                <a href="/pages/video.html">
+                        <span class="iconfont icon-video"></span>
+                        <p>即刻视频</p>
+                </a>    
+            </li>
+    
+    
+            
+            <li>
+                <a href="/pages/vip.html">
+                        <span class="iconfont icon-VIP"></span>
+                        <p>VIP</p>
+                </a>
+            </li>
+    
+            <li>
+                <a href="/pages/find.html">
+                        <span class="iconfont icon-faxian"></span>
+                        <p>发现</p>
+                </a>
+            </li>
+    
+            <li>
+                <a href="/pages/my.html">
+                        <span class="iconfont icon-shouye"></span>
+                        <p>我的</p>
+                </a>
+            </li>
+    
+        </ul>
+        </div>
+</body>
+</html>

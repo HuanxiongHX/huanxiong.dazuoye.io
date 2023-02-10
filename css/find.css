@@ -1,0 +1,295 @@
+div,ul,li.top.dao{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}   
+
+
+a{
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+ul{
+    list-style: none;
+}
+
+/*bottom dao*/
+
+
+#nav{
+    position:fixed; 
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    background-color: #fff;
+}
+
+#nav li{
+    width: 20%;
+    text-align: center;
+}
+
+#nav li span{
+    font-size: 24px;
+    line-height: 30px;
+    display: block; 
+}
+
+span {
+    position: relative;
+    top: -1.5px;
+    line-height: 30px;
+}
+
+body,ul,p{
+    padding: 0;
+    margin: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    display: block;
+    color: #999;
+}
+
+#head{
+    width: 100%;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+    display: block;
+    color: #999;
+}
+
+#head .icon-zuojiantou{
+    display: inline-block;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+#head form{
+    display: flex;
+    flex-grow: 1;
+}
+
+#head div{
+    flex-grow: 1;
+    display: flex;
+    background-color: #ddd;
+    border-radius: 8px;
+    padding: 3px 10px;
+    line-height: 20px;
+}
+
+#head .icon-sousuo{
+    display: inline-block;
+    font-size: 16px;
+    padding: 3px 3px;
+}
+
+#head form #search{
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    background-color: #ddd;
+}
+
+#head #sub{
+    font-size: 14px;
+    border: none;
+    width: 40px;
+    margin-left: 6px;
+    background-color: #fff;
+}
+
+.main {
+    height: 600px;
+    width: 100%;
+    margin: 30px auto;
+    border: 1px solid #ddd;
+    font-size: 12px;
+}
+
+.main .box ul .last {
+    border-bottom-style: none;
+}
+
+.main .top ul li {
+    list-style-type: none;
+    float: left;
+    height: 30px;
+    width: 120px;
+    margin-left: 10px;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.none {
+    display: none;
+}
+
+.main .box ul li .text {
+    line-height: 20px;
+    height: 65px;
+    width: 100px;
+    float: left;
+    margin-left: 2px;
+}
+
+.main .box ul li .text .red {
+    color: #d30012;
+    font-weight: bold;
+    float: left;
+    width: 60px;
+}
+
+.main .box ul li .text .price {
+    width: 60px;
+    float: left;
+    color: #a0a0a0;
+    font-weight: bold;
+    text-decoration: line-through;
+}
+
+.top .selected {
+    background-color: forestgreen;
+    color: #FFF;
+    position: relative;
+}
+
+.top .pic {
+    background-position: -102px -127px;  /* 设置背景图像起始位置 */
+    background-image: url(img/spirit.png);
+    height: 4px;
+    left: 42%;
+    position: absolute;
+    top: 21px;
+    width: 8px;
+    display: none;
+}
+
+.main .box ul li .text a {
+    height: 40px;
+    width: 110px;
+    text-overflow: ellipsis; /* 当文本溢出包含元素时发生的事情 */
+    white-space: wrap; /* 空余空间 */
+    overflow: hidden;
+    display: block;
+    font-weight: normal;
+}
+
+.main .box ul li .img img {
+    text-align: center;
+    margin-top: 2px;
+    margin-left: 3px;
+    width: 65px;
+    height: 65px;
+}
+
+.main .top {
+    height: 20px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: forestgreen;
+    padding-top: 10px;
+    margin-bottom: 15px;
+}
+
+.main .title {
+    text-align: center;
+    height: 30px;
+    border-bottom-color: #ddd;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    line-height: 30px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.main .box ul li {
+    list-style-type: none;
+    height: 75px;
+    width: 180px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #ddd;
+    margin-top: 10px;
+}
+
+.main .box ul li .img .pic1 {
+    background-position: 0 -109px;
+    background-image: url(img/spirit.png); /* 用于设置需要显示背景图片 */
+    color: #fff;
+    font: bold 10px Tahoma;
+    height: 20px;
+    left: 0;
+    padding-left: 2px;
+    position: absolute;
+    top: 0;
+    width: 18px;
+}
+
+.main .box ul li .img .pic2 {
+    background-position: 0 -132px;
+    background-image: url(img/spirit.png);
+    color: #fff;
+    font: bold 10px Tahoma;
+    height: 20px;
+    left: 0;
+    padding-left: 2px;
+    position: absolute;
+    top: 0;
+    width: 18px;
+}
+
+.main .box ul li .img {
+    position: relative;
+    height: 65px;
+    width: 65px;
+    float: left;
+    border: 1px solid #f2f2f2;
+}
+
+.top .selected .pic {
+    display: block;
+}
+
+#nav{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    background-color: #fff;
+}
+
+#nav li{
+    width: 20%;
+    text-align: center;
+}
+
+#nav li span{
+    font-size: 24px;
+    line-height: 30px;
+    display: block;
+    font-weight: bold;
+}

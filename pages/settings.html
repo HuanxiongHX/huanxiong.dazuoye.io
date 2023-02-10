@@ -1,0 +1,137 @@
+<!-- 设置页面 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20001030314王浩然</title>
+    <style>
+        body,ul,p{
+            padding: 0;
+            margin: 0;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        a{
+            text-decoration: none;
+            color: #000;
+            display: block;
+            color: #999;
+        }
+             
+        body{
+            background: rgb(239,239,239);
+        }
+
+        html{
+            font-size: 100px;
+        }
+             
+        .header{
+            background: #999;
+            height: 50px;
+            font-size: 17px;
+            color: white;
+            padding-left: 19px;
+            padding-right: 20px;
+            text-align: center;
+            line-height: 40px;     
+        }
+             
+        .header>a{ 
+            color: white;
+            float: left;
+        }
+             
+        .address,.safe,.shezhi,.secret,.view,.service,.check{             
+            font-size: 14px;            
+            padding-left: 10px;             
+            border-bottom: 1px solid #E0E0E0 ;             
+            height: 60px;            
+            line-height: 60px;            
+            padding-right: 10px;            
+            background: white;            
+        }
+             
+        .safe{  
+            margin-top: 15px;
+            margin-bottom: 15px; 
+        }
+             
+        .view{  
+            margin-bottom: 15px;
+        }
+             
+        .address>a,.safe>a,.shezhi>a,.secret>a,.view>a,.service>a,.check>a{
+            float: right; 
+         } /* 让"<"都居右对齐 */
+
+         #other a{
+            text-decoration: none;
+            display: inline-block;
+            width: 30%;
+            height: 35px;
+            text-align: center;
+            line-height: 30px;
+            color: #f00;
+            border: 1px solid #0f0;
+            font-size: 14px;
+            padding-left: 20px;
+         }  
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/pages/my.html"> < </a>设置 
+    </div>
+    <div class="safe"> 
+        账户与安全         
+         <a href="safe.html"> > </a>        
+    </div>        
+    <div class="shezhi">        
+        地区设置        
+        <a href="#"> > </a>        
+    </div>         
+    <div class="secret">        
+        隐私        
+        <a href="#"> > </a>        
+    </div>        
+    <div class="view">        
+        通知        
+        <a href="http://www.baidu.com"> > </a>        
+    </div> 
+    <div class="service">
+        客服中心
+        <a href="#"> > </a>
+    </div>     
+    <div class="check">
+        检查更新
+        <a href="#"> > </a>
+    </div>          
+    <div id="other">                   
+        <a href="https://www.autohome.com.cn/"> 关于平台 </a>  
+        <a href="https://www.autohome.com.cn/"> 退出当前账号 </a>      
+    </div>         
+    <script>
+        // 写入js——阻止默认事件
+        var parent = document.getElementById("other");        
+        var a = parent.getElementsByTagName("a"); // 也可以用getquerySelectorAll("a");
+        parent.onclick = function(){
+            alert("出现错误拉！");
+        }
+        for(var i = 0; i <a.length; i++) {
+            a[i].onclick = function(e){
+                // 阻止冒泡
+                e.stopPropagation();
+                // 阻止默认行为
+                e.preventDefault();
+                alert(`你点击的超链接为：${this.href},出现错误拉！`);
+            }
+        }
+    </script>
+</body>
+</html>

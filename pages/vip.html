@@ -1,0 +1,343 @@
+<!-- 设置页面 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20001030314王浩然</title>
+
+    <link rel="stylesheet" type="text/css" href="/css/vip.css">
+    <link rel="stylesheet" type="text/css" href="/css/iconfont/iconfont.css">
+
+</head>
+
+<body>
+    <header>
+        <div class="header_left gradient">
+            <a>VIP会员></a>
+        </div>
+
+        <div class="header_center absolute_center_flex gradient">
+            <a>会员中心</a>
+        </div>
+
+        <div class="header_right gradient">
+            <a class="iconfont icon-VIP iconcolor"></a>
+            <a class="iconfont icon-sousuo iconcolor"></a>
+        </div>
+    </header>
+
+    <!-- tabs -->
+    <div class="tab-control">
+        <ul id="tabs" class="tabs"></ul>
+    </div>
+
+    <!-- 内容 -->
+    <div class="content">
+        <!-- 自己card -->
+        <div class="card">
+            <div class="card_up">
+                <div>
+                    <img src="../img/1.jpg">
+                </div>
+                <div class="card_up_text">
+                    <a class="up">开通VIP会员</a>
+                    <a class="down">看精彩大片，体验轻奢新主义</a>
+                </div>
+            </div>
+            <div class="card_center">
+                <div class="card_center_text">
+                    <a class="up">新客特惠</a>
+                    <a class="down">会员免费领超值福利</a>
+                </div>
+                <button onclick="luckShow()">去开通</button>
+            </div>
+            <div class="card_down">
+                <ul id="card_tools"></ul>
+            </div>
+        </div>
+
+        <!-- 热门活动 -->
+        <div class="sec_level">
+            <div class="title">
+                <p>热门活动</p>
+                <p class="left">换一换〇</p>
+            </div>
+
+            <div class="sec_level_content">
+                <img src="../img/vip/hot.jpg">
+            </div>
+        </div>
+
+        <!-- 换会员 -->
+        <div class="sec_level">
+            <div class="title">
+                <p>换会员</p>
+                <p class="left">更多 ></p>
+            </div>
+
+            <div class="sec_level_content">
+                <img src="../img/vip/changevip.jpg">
+            </div>
+        </div>
+
+        <!-- VIP+ -->
+        <div class="sec_level">
+            <div class="title">
+                <p>VIP+</p>
+                <p class="left">更多 ></p>
+            </div>
+
+            <div class="sec_level_content">
+                <img src="../img/vip/vipplus.jpg">
+            </div>
+        </div>
+
+        <div></div>
+    </div>
+
+    <!--下导航-->
+    <div id="dibudao">
+        <ul id="nav">
+            <li>
+                <a class="footer_icon" href="../index.html">
+                    <span class="iconfont icon-home"></span>
+                    <p>首页</p>
+                </a>
+            </li>
+            <li>
+                <a class="footer_icon">
+                    <span class="iconfont icon-video"></span>
+                    <p>即刻视频</p>
+                </a>
+            </li>
+            <li>
+                <a class="footer_icon" href="/pages/vip.html">
+                    <span class="iconfont icon-VIP"></span>
+                    <p>VIP</p>
+                </a>
+            </li>
+            <li>
+                <a class="footer_icon" href="/pages/find.html">
+                    <span class="iconfont icon-faxian"></span>
+                    <p>发现</p>
+                </a>
+            </li>
+            <li>
+                <a class="footer_icon" href="/pages/my.html">
+                    <span class="iconfont icon-shouye"></span>
+                    <p>我的</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 抽奖蒙版 -->
+    <div id="luckDraw" class="luck_draw">
+        <div class="luckBg">
+            <div class="luckWhellBg">
+                <div class="luckWhellBgMain rotateStyle">
+                </div>
+                <div class="wheel-main">
+                    <div class="prize-list rotateStyle">
+                    </div>
+                    <div class="prize_point absolute_center_flex" onclick="prizeRoll()">
+                        开始
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="luck_content">
+            <p id="luckText">开开心心每一天</p>
+            <button onclick="luckNoShow()">退出</button>
+        </div>
+
+
+    </div>
+</body>
+
+<script>
+    // 初始化
+    function init() {
+        getData()
+    }
+    // 生成Tabs
+    function createTabs(tabsData) {
+        let str = '';
+
+        for (let i = 0; i < tabsData.length; i++) {
+            str += `<li class="${i === 0 ? 'show' : ''}">${tabsData[i].name}</li>`;
+        }
+
+        document.getElementById('tabs').innerHTML = str;
+    }
+
+    // 生成cradTools
+    function createCradTools(cradToolsData) {
+        let str = '';
+
+        for (let i = 0; i < cradToolsData.length; i++) {
+            str += `<li>
+                        <div class="card_down_imgbround absolute_center_flex">
+                            <img class="${i === 0 || i === 2 ? 'one' : ''}" src="${cradToolsData[i].icon}">
+                        </div>
+                        <p>${cradToolsData[i].name}</p>
+                    </li>`;
+        }
+
+        document.getElementById('card_tools').innerHTML = str;
+    }
+
+    // JSONDATA取得
+    function getData() {
+        let xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        }
+        else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                let jarr = JSON.parse(xmlhttp.responseText);
+                createTabs(jarr.tabs);
+                createCradTools(jarr.cardTools);
+            }
+        }
+        xmlhttp.open("GET", "vipJsonData.json", true);
+        xmlhttp.send();
+    }
+
+    const CIRCLE_ANGLE = 360;
+    const BIGSIZE = 24;
+    let data = [{ //可以随意更改奖项个数
+        id: 0,
+        prize_name: "5%"
+    }, {
+        id: 1,
+        prize_name: "10%"
+    }, {
+        id: 2,
+        prize_name: "15%"
+    }, {
+        id: 3,
+        prize_name: "20%"
+    }
+    ];
+    let angleList = []; // 记录每个奖的位置
+    let gift_id = 3; //中奖ID
+    let prizeList = formatPrizeList(data); //有样式的奖品列表
+    let index = '';//抽中的是第几个奖品
+    let isRotating = false; //为了防止重复点击
+    let rotateAngle = 0;
+    let bgDom = document.getElementsByClassName('luckWhellBgMain')[0];
+    let divDom = document.getElementsByClassName('prize-list')[0];
+    prizeAddHtml(prizeList);
+    //每个奖增加style
+    function formatPrizeList(list) {
+        const l = list.length;
+        // 计算单个奖项所占的角度
+        const average = CIRCLE_ANGLE / l; //60
+        const half = average / 2; //30			  
+        const rightBig = l == 2 ? '50' : '0';
+        const heightBig = l <= 3 ? '100' : '50';
+        const topBig = l == 3 ? '-50' : '0';
+        const skewMain = l <= 2 ? 0 : -(l - 4) * 90 / l;
+        // 循环计算给每个奖项添加style属性
+        list.forEach((item, i) => {
+            // 每个奖项旋转的位置为 当前 i * 平均值 + 平均值 / 2
+            const angle = -(i * average + half);
+            const bigAge = l > 2 ? i * 360 / l : '0';
+            // 增加 style 这个是给每一个奖项增加的样式
+            item.style = `-webkit-transform: rotate(${-angle}deg);
+          transform: rotate(${-angle}deg);
+          width:${100 / l * 2}%;  
+          margin-left: -${100 / l}%;
+          font-size:${BIGSIZE - l}px;`;
+            //这是给每一个转盘背景新增的样式
+            item.style2 = `-webkit-transform: rotate(${bigAge}deg);
+          transform: rotate(${bigAge}deg) skewY(${skewMain}deg);
+          right:${rightBig * i}%;
+          height:${heightBig}%;
+          top:${topBig}%;
+          width:${l == 1 ? 100 : 50}%;
+          background:${item.color}
+          `
+            // 记录每个奖项的角度范围
+            angleList.push(angle);
+        });
+        return list;
+    };
+    //奖品赋值到每个奖品中；
+    function prizeAddHtml(prizeList) {
+        console.log(prizeList)
+        //把奖品赋值到.luckWhellBgMain
+        let htmlBg = '';
+        let htmlDiv = '';
+        for (let i = 0, len = prizeList.length; i < len; i++) {
+            htmlBg += `<div class="luckWhellSector" style="${prizeList[i].style2}"></div>`;
+            htmlDiv += `<div class="prize-item"  style="${prizeList[i].style}">							
+          <div>
+            ${prizeList[i].prize_name}                
+          </div>	
+        </div>`
+        }
+        bgDom.innerHTML = htmlBg;
+        divDom.innerHTML = htmlDiv;
+    };
+    //抽奖
+    function prizeRoll() {
+        if (isRotating) return false;
+        gift_id = Math.floor(1 + Math.random() * prizeList.length);
+        console.log(gift_id);
+        prizeList.forEach((item, i) => {
+            if (item.id == gift_id) index = i; //判断中奖的位置
+        });
+        rotating(gift_id);
+    };
+    //转盘转动角度
+    function rotating(giftId) {
+        isRotating = true;
+        const config = {
+            duration: 5000,
+            circle: 8,
+            mode: "ease-in-out"
+        }
+        // 计算角度
+        const angle =
+            // 初始角度
+            rotateAngle +
+            // 多旋转的圈数
+            config.circle * CIRCLE_ANGLE +
+            // 奖项的角度
+            angleList[index] -
+            (rotateAngle % CIRCLE_ANGLE);
+        rotateAngle = angle;
+        bgDom.style.transform = `rotate(${rotateAngle}deg)`
+        divDom.style.transform = `rotate(${rotateAngle}deg)`
+        // 旋转结束后，允许再次触发
+        setTimeout(() => {
+            isRotating = false;
+            // 恭喜获得20%的开通会员优惠
+            let luckText = document.getElementById("luckText");
+            luckText.innerText = `恭喜获得${data[giftId].prize_name}的开通会员优惠`
+            console.log("抽奖结束");
+        }, config.duration + 500);
+    }
+
+    let luckDraw = document.getElementById("luckDraw");
+    function luckShow() {
+        luckDraw.style.display = "flex";
+    }
+
+    function luckNoShow() {
+        luckDraw.style.display = "none";
+    }
+
+    init()
+</script>
+
+</html>
